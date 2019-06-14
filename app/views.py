@@ -24,8 +24,9 @@ def index():
 
 @app.route('/episodes')
 def episodes():
-    if session['logged_in'] == True:
-        return render_template('episodes.html')
+    if 'logged_in' in session.keys():
+        if session['logged_in'] == True:
+            return render_template('episodes.html')
     else:
         return redirect(url_for('index'))
 
